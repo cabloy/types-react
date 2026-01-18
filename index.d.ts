@@ -21,6 +21,12 @@ type NativeTransitionEvent = TransitionEvent;
 type NativeUIEvent = UIEvent;
 type NativeWheelEvent = WheelEvent;
 
+interface HTMLActionElement {
+    stop?: boolean;
+    prevent?: boolean;
+    children?: React.ReactNode;
+}
+
 /**
  * Used to represent DOM API's where users can either pass
  * true or false as a boolean or as its equivalent strings.
@@ -295,6 +301,7 @@ declare namespace React {
      * ```
      */
     interface ReactElement<P = unknown, T extends string | JSXElementConstructor<any> = string | JSXElementConstructor<any>> {
+        (): void;
         type: T;
         props: P;
         key: string | null;
@@ -4060,6 +4067,7 @@ declare namespace React {
             ul: React.DetailedHTMLProps<React.HTMLAttributes<HTMLUListElement>, HTMLUListElement>;
             // var: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             var: HTMLVarElement;
+            action: HTMLActionElement;
             video: React.DetailedHTMLProps<React.VideoHTMLAttributes<HTMLVideoElement>, HTMLVideoElement>;
             wbr: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             webview: React.DetailedHTMLProps<React.WebViewHTMLAttributes<HTMLWebViewElement>, HTMLWebViewElement>;
