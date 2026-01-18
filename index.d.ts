@@ -4058,7 +4058,8 @@ declare namespace React {
             track: React.DetailedHTMLProps<React.TrackHTMLAttributes<HTMLTrackElement>, HTMLTrackElement>;
             u: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             ul: React.DetailedHTMLProps<React.HTMLAttributes<HTMLUListElement>, HTMLUListElement>;
-            var: React.DetailedHTMLProps<React.HTMLAttributes<HTMLVarElement>, HTMLVarElement>;
+            // var: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+            var: HTMLVarElement;
             video: React.DetailedHTMLProps<React.VideoHTMLAttributes<HTMLVideoElement>, HTMLVideoElement>;
             wbr: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             webview: React.DetailedHTMLProps<React.WebViewHTMLAttributes<HTMLWebViewElement>, HTMLWebViewElement>;

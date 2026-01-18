@@ -164,7 +164,7 @@ interface Blob {}
 interface MediaStream {}
 interface MediaSource {}
 
-interface HTMLVarElement extends HTMLElement {
+interface HTMLVarElement {
     name: string;
     value: string;
 }
