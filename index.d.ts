@@ -21,10 +21,24 @@ type NativeTransitionEvent = TransitionEvent;
 type NativeUIEvent = UIEvent;
 type NativeWheelEvent = WheelEvent;
 
+interface HTMLVarElement {
+    name: string;
+    value: string;
+}
+
 interface HTMLActionElement {
     stop?: boolean;
     prevent?: boolean;
     children?: React.ReactNode;
+}
+
+interface HTMLActionElementBase {
+    res?: string;
+}
+
+interface HTMLActionViewElement extends HTMLActionElementBase {
+    resource?: string;
+    id?: string;
 }
 
 /**
@@ -3811,10 +3825,12 @@ declare namespace React {
         | "track"
         | "u"
         | "ul"
-        | "var"
         | "video"
         | "wbr"
-        | "webview";
+        | "webview"
+        | "var"
+        | "action"
+        | "actionView";
 
     // TODO: Move to react-dom
     type SVGElementType =
@@ -3950,6 +3966,10 @@ declare namespace React {
 
         interface IntrinsicElements {
             // HTML
+            // var: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+            var: HTMLVarElement;
+            action: HTMLActionElement;
+            actionView: HTMLActionViewElement;
             a: React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>;
             abbr: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             address: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
@@ -4065,9 +4085,6 @@ declare namespace React {
             track: React.DetailedHTMLProps<React.TrackHTMLAttributes<HTMLTrackElement>, HTMLTrackElement>;
             u: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             ul: React.DetailedHTMLProps<React.HTMLAttributes<HTMLUListElement>, HTMLUListElement>;
-            // var: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-            var: HTMLVarElement;
-            action: HTMLActionElement;
             video: React.DetailedHTMLProps<React.VideoHTMLAttributes<HTMLVideoElement>, HTMLVideoElement>;
             wbr: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             webview: React.DetailedHTMLProps<React.WebViewHTMLAttributes<HTMLWebViewElement>, HTMLWebViewElement>;

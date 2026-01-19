@@ -163,8 +163,3 @@ interface TrustedHTML {}
 interface Blob {}
 interface MediaStream {}
 interface MediaSource {}
-
-interface HTMLVarElement {
-    name: string;
-    value: string;
-}
