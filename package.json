@@ -1,6 +1,6 @@
 {
     "name": "@cabloy/types-react",
-    "version": "19.2.11",
+    "version": "19.2.12",
     "description": "TypeScript definitions for react",
     "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react",
     "license": "MIT",
