@@ -32,15 +32,6 @@ interface HTMLActionElement {
     children?: React.ReactNode;
 }
 
-interface HTMLActionElementBase {
-    res?: string;
-}
-
-interface HTMLActionViewElement extends HTMLActionElementBase {
-    resource?: string;
-    id?: string;
-}
-
 /**
  * Used to represent DOM API's where users can either pass
  * true or false as a boolean or as its equivalent strings.
@@ -324,8 +315,10 @@ declare namespace React {
     /**
      * @deprecated
      */
-    interface ReactComponentElement<T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>, P = Pick<ComponentProps<T>, Exclude<keyof ComponentProps<T>, "key" | "ref">>>
-        extends ReactElement<P, Exclude<T, number>> {}
+    interface ReactComponentElement<
+        T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>,
+        P = Pick<ComponentProps<T>, Exclude<keyof ComponentProps<T>, "key" | "ref">>,
+    > extends ReactElement<P, Exclude<T, number>> {}
 
     /**
      * @deprecated Use `ReactElement<P, React.FunctionComponent<P>>`
@@ -1378,11 +1371,8 @@ declare namespace React {
      * type MyComponentProps = React.ComponentProps<typeof MyComponent>;
      * ```
      */
-    type ComponentProps<T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>> = T extends JSXElementConstructor<infer Props>
-        ? Props
-        : T extends keyof JSX.IntrinsicElements
-        ? JSX.IntrinsicElements[T]
-        : {};
+    type ComponentProps<T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>> =
+        T extends JSXElementConstructor<infer Props> ? Props : T extends keyof JSX.IntrinsicElements ? JSX.IntrinsicElements[T] : {};
 
     /**
      * Used to retrieve the props a component accepts with its ref. Can either be
@@ -1407,12 +1397,13 @@ declare namespace React {
      * type MyComponentPropsWithRef = React.ComponentPropsWithRef<typeof MyComponent>;
      * ```
      */
-    type ComponentPropsWithRef<T extends ElementType> = T extends JSXElementConstructor<infer Props>
-        ? // If it's a class i.e. newable we're dealing with a class component
-          T extends abstract new (args: any) => any
-            ? PropsWithoutRef<Props> & RefAttributes<InstanceType<T>>
-            : Props
-        : ComponentProps<T>;
+    type ComponentPropsWithRef<T extends ElementType> =
+        T extends JSXElementConstructor<infer Props>
+            ? // If it's a class i.e. newable we're dealing with a class component
+              T extends abstract new (args: any) => any
+                ? PropsWithoutRef<Props> & RefAttributes<InstanceType<T>>
+                : Props
+            : ComponentProps<T>;
     /**
      * Used to retrieve the props a custom component accepts with its ref.
      *
@@ -1429,12 +1420,13 @@ declare namespace React {
      * type MyComponentPropsWithRef = React.CustomComponentPropsWithRef<typeof MyComponent>;
      * ```
      */
-    type CustomComponentPropsWithRef<T extends ComponentType> = T extends JSXElementConstructor<infer Props>
-        ? // If it's a class i.e. newable we're dealing with a class component
-          T extends abstract new (args: any) => any
-            ? PropsWithoutRef<Props> & RefAttributes<InstanceType<T>>
-            : Props
-        : never;
+    type CustomComponentPropsWithRef<T extends ComponentType> =
+        T extends JSXElementConstructor<infer Props>
+            ? // If it's a class i.e. newable we're dealing with a class component
+              T extends abstract new (args: any) => any
+                ? PropsWithoutRef<Props> & RefAttributes<InstanceType<T>>
+                : Props
+            : never;
 
     /**
      * Used to retrieve the props a component accepts without its ref. Can either be
@@ -3969,7 +3961,6 @@ declare namespace React {
             // var: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             var: HTMLVarElement;
             action: HTMLActionElement;
-            actionView: HTMLActionViewElement;
             a: React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>;
             abbr: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             address: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
