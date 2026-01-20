@@ -30,6 +30,7 @@ interface HTMLActionElement {
     stop?: boolean;
     prevent?: boolean;
     children?: React.ReactNode;
+    res?: string;
 }
 
 /**
