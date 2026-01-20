@@ -23,7 +23,7 @@ type NativeWheelEvent = WheelEvent;
 
 interface HTMLVarElement {
     name: string;
-    value: string;
+    value: any;
 }
 
 interface HTMLActionElement {
