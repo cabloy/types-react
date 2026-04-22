@@ -27,6 +27,7 @@ interface HTMLVarElement {
 }
 
 interface HTMLLogElement {
+    name?: string;
     message: any;
 }
 
