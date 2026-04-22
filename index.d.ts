@@ -26,6 +26,10 @@ interface HTMLVarElement {
     value: any;
 }
 
+interface HTMLLogElement {
+    message: any;
+}
+
 interface HTMLActionElement {
     stop?: boolean;
     prevent?: boolean;
@@ -3961,6 +3965,7 @@ declare namespace React {
             // HTML
             // var: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             var: HTMLVarElement;
+            log: HTMLLogElement;
             action: HTMLActionElement;
             a: React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>;
             abbr: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
