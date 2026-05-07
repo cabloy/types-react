@@ -31,12 +31,6 @@ interface HTMLLogElement {
     message: any;
 }
 
-interface HTMLActionElement {
-    stop?: boolean;
-    prevent?: boolean;
-    children?: React.ReactNode;
-    res?: string;
-}
 
 /**
  * Used to represent DOM API's where users can either pass
@@ -3967,7 +3961,6 @@ declare namespace React {
             // var: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             var: HTMLVarElement;
             log: HTMLLogElement;
-            action: HTMLActionElement;
             a: React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>;
             abbr: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
             address: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
